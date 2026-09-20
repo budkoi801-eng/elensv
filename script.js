@@ -219,4 +219,44 @@ document.addEventListener('DOMContentLoaded', () => {
       window.scrollTo(0, window.scrollY);
     }
   }, { passive: true });
+
+  // --------------------------------------------------------------------------
+  // 4. SMART FLOATING TELEGRAM BUTTON (STOPS ABOVE FOOTER LINE)
+  // --------------------------------------------------------------------------
+  const floatingBtn = document.querySelector('.floating-tg-btn');
+  const footer = document.querySelector('.cyber-footer');
+
+  function adjustFloatingBtn() {
+    if (!floatingBtn || !footer) return;
+
+    const footerRect = footer.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+    const isMobile = window.innerWidth <= 768;
+    const defaultBottom = isMobile ? 20 : 28;
+    const clearance = isMobile ? 20 : 24; // Margin above the footer top border line
+
+    // Calculate required bottom position to stay above footer
+    const bottomFromFooter = (windowHeight - footerRect.top) + clearance;
+
+    if (bottomFromFooter > defaultBottom) {
+      floatingBtn.style.bottom = `${bottomFromFooter}px`;
+    } else {
+      floatingBtn.style.bottom = '';
+    }
+  }
+
+  let floatTicking = false;
+  function handleScrollForFloatingBtn() {
+    if (!floatTicking) {
+      window.requestAnimationFrame(() => {
+        adjustFloatingBtn();
+        floatTicking = false;
+      });
+      floatTicking = true;
+    }
+  }
+
+  window.addEventListener('scroll', handleScrollForFloatingBtn, { passive: true });
+  window.addEventListener('resize', adjustFloatingBtn, { passive: true });
+  adjustFloatingBtn();
 });
