@@ -329,7 +329,7 @@ body {
 }
 
 /* ==========================================================================
-   OFFICIAL HERO SHOWROOM (HRAD.PNG)
+   OFFICIAL HERO SHOWROOM (ZERO.JPG)
    ========================================================================== */
 .hero-cinematic {
   position: relative;
@@ -356,7 +356,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 36%;
+  object-position: center 42%;
   display: block;
 }
 
@@ -1689,9 +1689,9 @@ a.f-detail-loc:hover {
 
   .hero-visual-stage {
     position: relative;
-    height: 78vh;
-    min-height: 520px;
-    max-height: 720px;
+    height: clamp(320px, 46vh, 420px);
+    min-height: 310px;
+    max-height: 440px;
     width: 100%;
     overflow: hidden;
   }
@@ -1700,7 +1700,7 @@ a.f-detail-loc:hover {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 68% 16%;
+    object-position: 47% 40%;
   }
 
   .stage-gradient-bottom {
@@ -1708,50 +1708,56 @@ a.f-detail-loc:hover {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 32%;
-    background: linear-gradient(to bottom, transparent 0%, rgba(245, 246, 249, 0.7) 60%, var(--bg-deep) 100%);
+    height: 30%;
+    background: linear-gradient(to bottom, transparent 0%, rgba(245, 246, 249, 0.75) 65%, var(--bg-deep) 100%);
     pointer-events: none;
   }
 
-  /* Mobile Motto on the left of the girl - Clean Transparent Frame */
+  /* Mobile Motto - 4 horizontal transparent badges over the showroom floor reflection */
   .hero-mobile-motto {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
     position: absolute;
-    left: 16px;
-    top: 48%;
-    transform: translateY(-50%);
+    left: 12px;
+    right: 12px;
+    bottom: 16px;
     z-index: 3;
     pointer-events: none;
+    max-width: 440px;
+    margin: 0 auto;
   }
 
   .mob-motto-word {
+    flex: 1;
     position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 6px 14px;
-    border-radius: 10px;
+    padding: 7px 4px;
+    border-radius: 9px;
     
-    /* Clean Transparent Frame */
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    /* Clean Transparent Frame with frosted blur */
+    background: rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     
     border: 1px solid rgba(255, 255, 255, 0.45);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
     
-    /* Crisp white typography with soft contrast shadow */
+    /* Crisp typography */
     font-family: var(--font-condensed);
-    font-size: clamp(1.05rem, 4.4vw, 1.35rem);
+    font-size: clamp(0.72rem, 2.7vw, 0.88rem);
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 1.2px;
     line-height: 1.15;
     color: #ffffff;
     text-transform: uppercase;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+    text-align: center;
+    white-space: nowrap;
   }
 
   /* Move brand frame and buttons down below the photo stage */
@@ -1759,7 +1765,7 @@ a.f-detail-loc:hover {
     position: relative;
     z-index: 4;
     width: 100%;
-    margin-top: -26px;
+    margin-top: -18px;
   }
 
   .hud-container {
