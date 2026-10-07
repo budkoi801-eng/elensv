@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700&family=Orbitron:wght@600;700;800;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2.4">
 </head>
 <body>
 
@@ -88,7 +88,7 @@
     <!-- CINEMATIC HERO SHOWROOM: header.png С КОНТРАСТНОЙ РАМКОЙ СТУДИИ -->
     <section class="hero-cinematic" id="hero">
       <div class="hero-visual-stage">
-        <img src="hrad.png" alt="Премиальный детейлинг Elensv2444" class="hero-stage-img">
+        <img src="zero.jpg" alt="Премиальный детейлинг ELENSV" class="hero-stage-img">
         <div class="stage-gradient-bottom"></div>
         <div class="hero-mobile-motto">
           <span class="mob-motto-word">ЧИСТОТА</span>
@@ -202,6 +202,34 @@
             <p class="card-lead">
               Полировка кузова — это не просто убрать царапины, а возможность вернуть блеск, чистоту и целостность лкп в состояние каким оно было выпущено с конвейера.
             </p>
+
+            <!-- Gallery Slider (zx2, zx3, zx5) -->
+            <div class="card-thumb-wrap card-thumb-slider" data-gallery-title="Полировка кузова с реставрацией сколов и царапин">
+              <div class="card-thumb-slides">
+                <img src="zx2.jpg" alt="Полировка кузова до и после" class="card-thumb-img active" loading="lazy">
+                <img src="zx3.jpg" alt="Полировка кузовных деталей в студии" class="card-thumb-img" loading="lazy">
+                <img src="zx5.jpg" alt="Процесс полировки и тест 50/50 на Range Rover" class="card-thumb-img" loading="lazy">
+              </div>
+
+              <button type="button" class="card-slider-btn prev" aria-label="Предыдущее фото">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+              <button type="button" class="card-slider-btn next" aria-label="Следующее фото">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+
+              <div class="card-slider-badge">1 / 3</div>
+
+              <div class="card-thumb-overlay">
+                <span class="card-thumb-pill">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/></svg>
+                  <span>Развернуть фото</span>
+                </span>
+              </div>
+
+              <div class="card-slider-dots"></div>
+            </div>
+
             <p class="card-sub">
               Вы заберете не только отполированный авто, но и взгляды окружающих.
             </p>
@@ -393,6 +421,7 @@
                 <img src="ph10.jpg" alt="Покраска диска AMG" class="card-thumb-img active" loading="lazy">
                 <img src="ph11.jpg" alt="Реставрация дисков Mercedes до и после" class="card-thumb-img" loading="lazy">
                 <img src="ph12.jpg" alt="Покраска суппортов BMW M-Power" class="card-thumb-img" loading="lazy">
+                <img src="zx4.jpg" alt="Реставрация суппортов AMG и дисков Mercedes" class="card-thumb-img" loading="lazy">
               </div>
 
               <button type="button" class="card-slider-btn prev" aria-label="Предыдущее фото">
@@ -402,7 +431,7 @@
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
               </button>
 
-              <div class="card-slider-badge">1 / 3</div>
+              <div class="card-slider-badge">1 / 4</div>
 
               <div class="card-thumb-overlay">
                 <span class="card-thumb-pill">
@@ -488,6 +517,7 @@
             <div class="card-thumb-wrap card-thumb-slider" data-gallery-title="Выпрямление вмятин без окраса (PDR)">
               <div class="card-thumb-slides">
                 <img src="photo2.jpg" alt="Выпрямление вмятин без окраса PDR" class="card-thumb-img active" loading="lazy">
+                <img src="zx1.jpg" alt="Правка вмятины на ребре крыла PDR до и после" class="card-thumb-img" loading="lazy">
               </div>
 
               <button type="button" class="card-slider-btn prev" aria-label="Предыдущее фото">
@@ -497,7 +527,7 @@
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
               </button>
 
-              <div class="card-slider-badge">1 / 1</div>
+              <div class="card-slider-badge">1 / 2</div>
 
               <div class="card-thumb-overlay">
                 <span class="card-thumb-pill">
@@ -530,6 +560,32 @@
             <p class="card-lead">
               Перешив салона в оригинальную кожу или кожзам и так же возможность поменять цвет или дизайн салона по Вашему желанию.
             </p>
+
+            <!-- Gallery Slider (photo1) -->
+            <div class="card-thumb-wrap card-thumb-slider" data-gallery-title="Перешив салона и руля • Оригинальная кожа и алькантара">
+              <div class="card-thumb-slides">
+                <img src="photo1.jpg" alt="Перешив руля BMW в кожу и алькантару" class="card-thumb-img active" loading="lazy">
+              </div>
+
+              <button type="button" class="card-slider-btn prev" aria-label="Предыдущее фото">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+              <button type="button" class="card-slider-btn next" aria-label="Следующее фото">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+
+              <div class="card-slider-badge">1 / 1</div>
+
+              <div class="card-thumb-overlay">
+                <span class="card-thumb-pill">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/></svg>
+                  <span>Развернуть фото</span>
+                </span>
+              </div>
+
+              <div class="card-slider-dots"></div>
+            </div>
+
             <p class="card-sub">
               Индивидуальный подбор нитей, анатомические валики, перфорация и премиальная эстетика интерьера.
             </p>
@@ -730,6 +786,6 @@
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=2.4"></script>
 </body>
 </html>
