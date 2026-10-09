@@ -449,4 +449,112 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', handleScrollForFloatingBtn, { passive: true });
   window.addEventListener('resize', adjustFloatingBtn, { passive: true });
   adjustFloatingBtn();
+
+  // --------------------------------------------------------------------------
+  // 5. COOKIE CONSENT BANNER (152-FZ)
+  // --------------------------------------------------------------------------
+  const cookieBanner = document.getElementById('cookieBanner');
+  const acceptCookieBtn = document.getElementById('acceptCookieBtn');
+
+  if (cookieBanner && acceptCookieBtn) {
+    const isCookieAccepted = localStorage.getItem('elensv_cookie_consent') === 'accepted';
+    if (!isCookieAccepted) {
+      setTimeout(() => {
+        cookieBanner.classList.add('show');
+      }, 700);
+    }
+
+    acceptCookieBtn.addEventListener('click', () => {
+      localStorage.setItem('elensv_cookie_consent', 'accepted');
+      cookieBanner.classList.remove('show');
+    });
+  }
+
+  // --------------------------------------------------------------------------
+  // 6. BOOKING & FEEDBACK FORM CONTROLLER (152-FZ)
+  // --------------------------------------------------------------------------
+  const bookingForm = document.getElementById('bookingForm');
+  const clientPhone = document.getElementById('clientPhone');
+  const bookingSuccessModal = document.getElementById('bookingSuccessModal');
+  const closeSuccessBtn = document.getElementById('closeSuccessBtn');
+
+  // Russian Phone Input Mask (+7 (XXX) XXX-XX-XX)
+  if (clientPhone) {
+    clientPhone.addEventListener('input', (e) => {
+      let value = e.target.value.replace(/\D/g, '');
+      if (value.startsWith('8') || value.startsWith('7')) {
+        value = value.substring(1);
+      }
+      let formatted = '+7 ';
+      if (value.length > 0) formatted += '(' + value.substring(0, 3);
+      if (value.length >= 3) formatted += ') ' + value.substring(3, 6);
+      if (value.length >= 6) formatted += '-' + value.substring(6, 8);
+      if (value.length >= 8) formatted += '-' + value.substring(8, 10);
+      e.target.value = formatted.trim();
+    });
+  }
+
+  // Form Submission
+  if (bookingForm) {
+    bookingForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const nameInput = document.getElementById('clientName');
+      const carInput = document.getElementById('clientCar');
+      const serviceInput = document.getElementById('clientService');
+      const commentInput = document.getElementById('clientComment');
+      const pdConsent = document.getElementById('pdConsent');
+
+      if (!nameInput.value.trim()) {
+        nameInput.focus();
+        return;
+      }
+
+      if (!clientPhone.value.trim() || clientPhone.value.replace(/\D/g, '').length < 11) {
+        clientPhone.focus();
+        alert('Пожалуйста, укажите корректный номер телефона для связи.');
+        return;
+      }
+
+      if (!pdConsent.checked) {
+        alert('Для отправки заявки необходимо согласие на обработку персональных данных (152-ФЗ).');
+        pdConsent.focus();
+        return;
+      }
+
+      // Pre-fill Telegram link in success popup
+      const clientName = nameInput.value.trim();
+      const clientPhoneVal = clientPhone.value.trim();
+      const carVal = carInput ? carInput.value.trim() : '';
+      const serviceVal = serviceInput ? serviceInput.value : '';
+      const commentVal = commentInput ? commentInput.value.trim() : '';
+
+      const tgMsg = encodeURIComponent(
+        `Здравствуйте! Заявка с сайта ELENSV:\n` +
+        `• Имя: ${clientName}\n` +
+        `• Телефон: ${clientPhoneVal}\n` +
+        (carVal ? `• Авто: ${carVal}\n` : '') +
+        `• Услуга: ${serviceVal}\n` +
+        (commentVal ? `• Комментарий: ${commentVal}` : '')
+      );
+
+      const tgBtn = document.querySelector('.btn-success-tg');
+      if (tgBtn) {
+        tgBtn.href = `https://t.me/+79249942444?text=${tgMsg}`;
+      }
+
+      // Show success modal
+      if (bookingSuccessModal) {
+        bookingSuccessModal.classList.add('active');
+      }
+
+      bookingForm.reset();
+    });
+  }
+
+  if (closeSuccessBtn && bookingSuccessModal) {
+    closeSuccessBtn.addEventListener('click', () => {
+      bookingSuccessModal.classList.remove('active');
+    });
+  }
 });
