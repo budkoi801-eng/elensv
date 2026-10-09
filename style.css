@@ -333,22 +333,21 @@ body {
    ========================================================================== */
 .hero-cinematic {
   position: relative;
-  min-height: 100vh;
+  min-height: auto;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding-top: 110px;
+  justify-content: flex-start;
+  padding-top: 0;
   padding-bottom: 50px;
-  overflow: hidden;
+  overflow: visible;
   background: var(--bg-deep);
 }
 
 .hero-visual-stage {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   width: 100%;
-  height: 100%;
+  height: clamp(500px, 62vh, 700px);
+  overflow: hidden;
   z-index: 1;
 }
 
@@ -366,8 +365,8 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 38%;
-  background: linear-gradient(to bottom, transparent 0%, rgba(245, 246, 249, 0.65) 55%, var(--bg-deep) 100%);
+  height: 34%;
+  background: linear-gradient(to bottom, transparent 0%, rgba(245, 246, 249, 0.75) 60%, var(--bg-deep) 100%);
   pointer-events: none;
 }
 
@@ -381,28 +380,34 @@ body {
 
 .hero-floating-hud {
   position: relative;
-  z-index: 3;
+  z-index: 4;
   width: 100%;
+  margin-top: -55px;
 }
 
 .hud-container {
   max-width: 1300px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Executive Brand Plaque */
+/* Executive Brand Plaque (Liquid Glass / Transparent) */
 .hero-brand-frame {
   max-width: 660px;
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  width: 100%;
+  margin: 0 auto 24px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.65);
   border-top: 3px solid var(--accent-graphite);
   border-radius: var(--radius-lg);
   padding: 28px 34px;
-  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
-  margin-bottom: 24px;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.85);
   position: relative;
   overflow: hidden;
   display: flex;
@@ -425,8 +430,10 @@ body {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background: var(--bg-subtle);
-  border: 1px solid var(--border-subtle);
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-radius: var(--radius-pill);
   padding: 6px 18px;
   margin: 0 auto 16px;
@@ -560,9 +567,12 @@ a.meta-geo-item:hover {
 .hud-actions-row {
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 14px;
   max-width: 660px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .btn-hero-primary {
@@ -1511,6 +1521,22 @@ a.f-detail-loc:hover {
 
 /* Tablet & Smaller Laptops */
 @media (max-width: 1140px) {
+  .hud-container {
+    align-items: center;
+    padding: 0 20px;
+  }
+
+  .hero-brand-frame {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 620px;
+  }
+
+  .hud-actions-row {
+    justify-content: center;
+    max-width: 620px;
+  }
+
   .cyber-header {
     top: 12px;
     padding: 0 12px;
@@ -1787,13 +1813,18 @@ a.f-detail-loc:hover {
   }
 
   .hero-brand-frame {
+    background: rgba(255, 255, 255, 0.32);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-top: 3px solid var(--accent-graphite);
     padding: 24px 18px;
     border-radius: 18px;
     margin-bottom: 16px;
     max-width: 100%;
     align-items: center;
     text-align: center;
-    box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+    box-shadow: 0 12px 35px rgba(15, 23, 42, 0.06), inset 0 1px 1px rgba(255, 255, 255, 0.8);
   }
 
   /* Hide duplicate motto pill inside the card on mobile */
