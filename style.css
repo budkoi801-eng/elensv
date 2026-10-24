@@ -969,8 +969,13 @@ a.meta-geo-item:hover {
   line-height: 1.55;
 }
 
-.card-sub.mb-thumb {
+.card-sub.mb-thumb,
+.card-feature-list.mb-thumb {
   margin-bottom: 20px;
+}
+
+.titanium-card .card-thumb-wrap:last-child {
+  margin-bottom: 0;
 }
 
 .card-extra-block {
